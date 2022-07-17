@@ -1,0 +1,115 @@
+
+:project_id: gs-spring-boot
+
+
+== What You Will build
+
+You will build a simple web application with Spring Boot and add some useful services to
+it.
+
+== What You Need
+
+:java_version: 1.8
+:spring_boot_version:2.7.1
+
+
+To manually run the project:
+
+main entry point of application :
+====
+[source,java]
+----
+include::complete/src/main/java/com/example/springboot/Application.java[]
+----
+====
+
+== Run the Application
+
+To run the application, run the following command in a terminal window (in the `complete`)
+directory:
+
+====
+[subs="attributes"]
+----
+./gradlew bootRun
+----
+====
+
+If you use Maven, run the following command in a terminal window (in the `complete`)
+directory:
+
+====
+[subs="attributes"]
+----
+./mvnw spring-boot:run
+----
+====
+
+You should see output similar to the following:
+
+====
+[source,text]
+----
+Let's inspect the beans provided by Spring Boot:
+application
+beanNameHandlerMapping
+defaultServletHandlerMapping
+dispatcherServlet
+embeddedServletContainerCustomizerBeanPostProcessor
+handlerExceptionResolver
+helloController
+httpRequestHandlerAdapter
+messageSource
+mvcContentNegotiationManager
+mvcConversionService
+mvcValidator
+org.springframework.boot.autoconfigure.MessageSourceAutoConfiguration
+org.springframework.boot.autoconfigure.PropertyPlaceholderAutoConfiguration
+org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration
+org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration$DispatcherServletConfiguration
+org.springframework.boot.autoconfigure.web.EmbeddedServletContainerAutoConfiguration$EmbeddedTomcat
+org.springframework.boot.autoconfigure.web.ServerPropertiesAutoConfiguration
+org.springframework.boot.context.embedded.properties.ServerProperties
+org.springframework.context.annotation.ConfigurationClassPostProcessor.enhancedConfigurationProcessor
+org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor
+org.springframework.context.annotation.internalAutowiredAnnotationProcessor
+org.springframework.context.annotation.internalCommonAnnotationProcessor
+org.springframework.context.annotation.internalConfigurationAnnotationProcessor
+org.springframework.context.annotation.internalRequiredAnnotationProcessor
+org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration
+propertySourcesBinder
+propertySourcesPlaceholderConfigurer
+requestMappingHandlerAdapter
+requestMappingHandlerMapping
+resourceHandlerMapping
+simpleControllerHandlerAdapter
+tomcatEmbeddedServletContainerFactory
+viewControllerHandlerMapping
+----
+====
+
+You can clearly see `org.springframework.boot.autoconfigure` beans. There is also a `tomcatEmbeddedServletContainerFactory`.
+
+Now run the service with curl (in a separate terminal window), by running the following
+command (shown with its output):
+
+====
+[source,text]
+----
+$ curl localhost:8080
+Greetings from Spring Boot!
+----
+====
+
+Navigate to : localhost:8080 on web browser for default route.
+
+Other endpoints this application offers:
+1. localhost:8080/createNewCompany
+2. localhost:8080/getCompanyList
+3. localhost:8080/getCompany
+4. localhost:8080/updateCompany
+5. localhost:8080/addOwner/{companyId}
+6. localhost:8080/checkSSN
+
+
+Thank you for exploring the project!
